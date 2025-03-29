@@ -15,9 +15,9 @@ _life_giver_boost:
 _011:
     CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_ATTACKER, HOLD_EFFECT_LEECH_BOOST, _031
     GetItemEffectParam BATTLER_CATEGORY_ATTACKER, BSCRIPT_VAR_CALC_TEMP
-    UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 0x00000064  // Adds 100 to param (e.g., 30 becomes 130)
+    UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 0x00000064
     UpdateVarFromVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_CALC_TEMP
-    UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 100          // Applies boost (e.g., 130 / 100 = 1.3x)
+    UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 100
 
 _031:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
@@ -42,6 +42,13 @@ _064:
 
 _077:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _090
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_LIFE_GIVER, _life_giver_ooze_adjust
+    b _apply_ooze_damage
+
+_life_giver_ooze_adjust:
+    UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 4  ; Adjusts doubled value (40 → 10)
+
+_apply_ooze_damage:
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE

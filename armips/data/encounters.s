@@ -288,10 +288,10 @@ encounter SPECIES_NONE, 0, 0
 encounter SPECIES_NONE, 0, 0
 
 // old rod encounters
+encounter SPECIES_TENTACOOL, 10, 10
 encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_MAGIKARP, 10, 10
-encounter SPECIES_KRABBY, 10, 10
+encounter SPECIES_AZURILL, 3, 8
+encounter SPECIES_AZURILL, 4, 9
 encounter SPECIES_KRABBY, 10, 10
 
 // good rod encounters
