@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bb0a4266-fe99-4190-99e4-2996060df956" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/armips/data/levelupdata.s" beforeDir="false" afterPath="$PROJECT_DIR$/armips/data/levelupdata.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/armips/include/config.s" beforeDir="false" afterPath="$PROJECT_DIR$/armips/include/config.s" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/debug.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/debug.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/text/722.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/text/722.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/config.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
       <updated>1742759130808</updated>
       <workItem from="1742759134140" duration="17037000" />
       <workItem from="1742792611046" duration="30733000" />
-      <workItem from="1743239831689" duration="1962000" />
+      <workItem from="1743239831689" duration="5234000" />
     </task>
     <servers />
   </component>

@@ -63,7 +63,7 @@ The Pokémon may heal its\nown status problems.
 Boosts Attack if there is\na status problem.
 Ups Defense if there is\na status problem.
 Inflicts damage on foes\nusing any draining move.
-Powers up Grass-type\nmoves in a pinch.
+Powers up Grass-type\nmoves when weak.
 Powers up Fire-type\nmoves in a pinch.
 Powers up Water-type\nmoves in a pinch.
 Powers up Bug-type\nmoves in a pinch.

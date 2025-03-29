@@ -127,7 +127,7 @@
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
 // Otherwise: Hail
-#define SNOW_WARNING_GENERATION 9
+#define SNOW_WARNING_GENERATION 4
 
 // IMPLEMENT_REUSABLE_REPELS defines whether or not a prompt to use another repel automatically appears upon the previous repel being used up
 #define IMPLEMENT_REUSABLE_REPELS
@@ -142,6 +142,6 @@
 #define REUSABLE_TMS
 
 // STATIC_HP_BAR updates the HP bar to increase/decrease at a fixed rate like later generations
-#define STATIC_HP_BAR
+//#define STATIC_HP_BAR
 
 #endif
