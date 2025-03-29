@@ -46,7 +46,8 @@ _077:
     b _apply_ooze_damage
 
 _life_giver_ooze_adjust:
-    UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 4  ; Adjusts doubled value (40 → 10)
+    // Adjusts doubled value (40 → 10)
+    UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 4
 
 _apply_ooze_damage:
     Call BATTLE_SUBSCRIPT_UPDATE_HP
