@@ -63,7 +63,7 @@ The Pokémon may heal its\nown status problems.
 Boosts Attack if there is\na status problem.
 Ups Defense if there is\na status problem.
 Inflicts damage on foes\nusing any draining move.
-Powers up Grass-type\nmoves when weak.
+Powers up Grass-type\nmoves in a pinch.
 Powers up Fire-type\nmoves in a pinch.
 Powers up Water-type\nmoves in a pinch.
 Powers up Bug-type\nmoves in a pinch.
@@ -190,7 +190,7 @@ The effects of “Aura”\nAbilities are reversed.
 Changes the weather\nto nullify Fire-type moves.
 Changes the weather\nto nullify Water-type moves.
 Alters weather to\nremove Flying-type’s weaknesses.
-Boosts Defense when\nhit by an attack.
+Gives health regeneration\nto allies.
 Wimpily switches out if its\nHP becomes half or less.
 Switches out if its HP\nbecomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.

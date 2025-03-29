@@ -34,7 +34,7 @@ _056:
 _069:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _082
     Call BATTLE_SUBSCRIPT_UPDATE_HP
-    // It sucked up the liquid ooze!
+    // It sucked up the liquid ooze! -- This is 721 in 197.txt!
     PrintMessage 720, TAG_NONE
     Wait 
     WaitButtonABTime 30

@@ -259,7 +259,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 ret = TRUE;
             }
         break;
-        case ABILITY_STAMINA:
+       /*  case ABILITY_STAMINA:
             if ((sp->battlemon[sp->defence_client].hp)
                 && (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12)
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -275,7 +275,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 seq_no[0] = SUB_SEQ_BOOST_STATS;
                 ret = TRUE;
             }
-            break;
+            break; */
         case ABILITY_GOOEY:
         case ABILITY_TANGLING_HAIR:
             if ((sp->battlemon[sp->attack_client].states[STAT_SPEED] > 0)
