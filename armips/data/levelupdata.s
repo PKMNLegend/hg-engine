@@ -3489,12 +3489,12 @@ levelup SPECIES_MEW
 levelup SPECIES_CHIKORITA
     learnset MOVE_GROWL, 1
     learnset MOVE_TACKLE, 1
-    learnset MOVE_RAZOR_LEAF, 6
-    learnset MOVE_POISON_POWDER, 9
+    learnset MOVE_MEGA_DRAIN, 6
+    learnset MOVE_SLEEP_POWDER, 7
+    learnset MOVE_LEECH_SEED, 9
     learnset MOVE_SYNTHESIS, 12
     learnset MOVE_REFLECT, 17
     learnset MOVE_MAGICAL_LEAF, 20
-    learnset MOVE_LEECH_SEED, 23
     learnset MOVE_SWEET_SCENT, 28
     learnset MOVE_LIGHT_SCREEN, 31
     learnset MOVE_BODY_SLAM, 34

@@ -7,12 +7,12 @@ START_ADDRESS equ 0x0
 
 // FAIRY_TYPE_IMPLEMENTED defines whether or not the fairy type is to be implemented as type 9 or not.
 // if you do not want this change, then set it to 0
-FAIRY_TYPE_IMPLEMENTED equ 1
+FAIRY_TYPE_IMPLEMENTED equ 0
 
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
 // Otherwise: Hail
-SNOW_WARNING_GENERATION equ 9
+SNOW_WARNING_GENERATION equ 4
 
 // ALLOW_SAVE_CHANGES tells the assembler that it can build the code that pertains to expanding the save data for extra fields for our usage.
 // this is required for dex expansion and will break PKHeX compatibility!  comment this line out to prevent save changes from being made.
@@ -31,13 +31,13 @@ BATTLE_MODE_FORCE_SET equ 0
 ALWAYS_HAVE_NATIONAL_DEX equ 0
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
-ALWAYS_UNCAPPED_FRAME_RATE equ 0
+ALWAYS_UNCAPPED_FRAME_RATE equ 1
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
 BATTLES_UNCAPPED_FRAME_RATE equ 0
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
-FAST_TEXT_PRINTING equ 0
+FAST_TEXT_PRINTING equ 1
 
 // REUSABLE_TMS will make TMs infinite and hide the quantity number.
 REUSABLE_TMS equ 1
