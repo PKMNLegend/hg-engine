@@ -21,44 +21,78 @@ _000:
 _050:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_MSG_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_LIFE_GIVER, _life_giver_boost
+    b _continue
+
+_life_giver_boost:
+    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, 130
+    UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 100
+
+_continue:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_DEFENDER, ABILITY_LIQUID_OOZE, _096
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HEAL_BLOCK_TURNS, 0, _083
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0}’s health is sapped by Leech Seed!
     PrintMessage 296, TAG_NICKNAME, BATTLER_CATEGORY_MSG_DEFENDER
-    Wait 
+    Wait
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
-    End 
+    GoTo _check_life_giver_teammate
 
 _083:
     UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HEAL_BLOCK
     // {0} was prevented from healing due to {1}!
     PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
+    Wait
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
-    End 
+    GoTo _check_life_giver_teammate
 
 _096:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_MAGIC_GUARD, _110
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
-    End 
+    GoTo _check_life_giver_teammate
 
 _110:
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
     // {0}’s {1} suppressed {2}’s {3}!
     PrintMessage 727, TAG_NICKNAME_ABILITY_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_DEFENDER, BATTLER_CATEGORY_MSG_DEFENDER
-    Wait 
+    Wait
     WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
-    End 
+    GoTo _check_life_giver_teammate
+
+_check_life_giver_teammate:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_LIFE_GIVER, _life_giver_teammate_heal
+    End
+
+_life_giver_teammate_heal:
+    // Set the teammate as the attacker's partner
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BATTLER_CATEGORY_ATTACKER_PARTNER
+    // Check if teammate's HP is greater than 0 (not fainted)
+    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HP, 0, _heal_teammate
+    End
+
+_heal_teammate:
+    // Set HP recovery to the damage dealt (hit damage), negated to heal
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
+    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
+    // Heal the teammate (BSCRIPT_VAR_MSG_BATTLER_TEMP is already set to the partner)
+    Call BATTLE_SUBSCRIPT_UPDATE_HP
+    // Play healing animation from teammate to defender
+    PlayBattleAnimationOnMons BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_DEFENDER, BATTLE_ANIMATION_DAMAGE_LEECH_SEED
+    Wait
+    // Optional: Uncomment to add a custom message
+    // PrintMessage CUSTOM_MESSAGE_ID, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
+    // Wait
+    WaitButtonABTime 30
+    End

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bb0a4266-fe99-4190-99e4-2996060df956" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/battle_scripts/subscripts/subscript_0024_DRAIN_HALF_DAMAGE_DEALT.s" beforeDir="false" afterPath="$PROJECT_DIR$/data/battle_scripts/subscripts/subscript_0024_DRAIN_HALF_DAMAGE_DEALT.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/battle_scripts/subscripts/subscript_0069_LEECH_SEED_EFFECT.s" beforeDir="false" afterPath="$PROJECT_DIR$/data/battle_scripts/subscripts/subscript_0069_LEECH_SEED_EFFECT.s" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +74,7 @@
       <workItem from="1742759134140" duration="17037000" />
       <workItem from="1742792611046" duration="30733000" />
       <workItem from="1743239831689" duration="5234000" />
-      <workItem from="1743278697408" duration="2638000" />
+      <workItem from="1743278697408" duration="10463000" />
     </task>
     <servers />
   </component>
