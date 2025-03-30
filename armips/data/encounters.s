@@ -114,7 +114,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata   1   // Route 29
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -322,7 +322,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata   3   // Route 30
 
-walkrate 25
+walkrate 15
 surfrate 15
 rocksmashrate 0
 oldrodrate 25
@@ -426,7 +426,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata   4   // Route 31
 
-walkrate 25
+walkrate 15
 surfrate 15
 rocksmashrate 0
 oldrodrate 25
@@ -842,7 +842,7 @@ pokemon SPECIES_NONE
 
 encounterdata   8   // Route 32
 
-walkrate 25
+walkrate 15
 surfrate 15
 rocksmashrate 0
 oldrodrate 25
@@ -1778,7 +1778,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  17   // Route 33
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -2194,7 +2194,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  21   // Route 34
 
-walkrate 25
+walkrate 15
 surfrate 15
 rocksmashrate 0
 oldrodrate 25
@@ -2298,7 +2298,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  22   // Route 35
 
-walkrate 25
+walkrate 15
 surfrate 15
 rocksmashrate 0
 oldrodrate 25
@@ -2402,7 +2402,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  23   // National Park
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -2506,7 +2506,7 @@ pokemon SPECIES_NONE
 
 encounterdata  24   // National Park (Bug Catching Contest - Not Normally Used)
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -2610,7 +2610,7 @@ pokemon SPECIES_NONE
 
 encounterdata  25   // Route 36
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -2714,7 +2714,7 @@ pokemon SPECIES_NONE
 
 encounterdata  26   // Route 37
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -3962,7 +3962,7 @@ pokemon SPECIES_NONE
 
 encounterdata  38   // Route 38
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -4066,7 +4066,7 @@ pokemon SPECIES_NONE
 
 encounterdata  39   // Route 39
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -5418,7 +5418,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  52   // Route 42
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25
@@ -6146,7 +6146,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  59   // Route 44
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25
@@ -6978,7 +6978,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  67   // Route 45
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25
@@ -7082,7 +7082,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  68   // Route 46
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -7394,7 +7394,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata  71   // Route 47
 
-walkrate 25
+walkrate 15
 surfrate 15
 rocksmashrate 0
 oldrodrate 25
@@ -8850,7 +8850,7 @@ pokemon SPECIES_NONE
 
 encounterdata  85   // Mt. Silver (Outside area with Pokemon Center)
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25
@@ -10618,7 +10618,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata 102   // Route 48
 
-walkrate 25
+walkrate 15
 surfrate 0
 rocksmashrate 0
 oldrodrate 0
@@ -10722,7 +10722,7 @@ pokemon SPECIES_NONE
 
 encounterdata 103   // Route 26
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25
@@ -10826,7 +10826,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata 104   // Route 27
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25
@@ -10930,7 +10930,7 @@ pokemon SPECIES_MAGIKARP
 
 encounterdata 105   // Route 28
 
-walkrate 25
+walkrate 15
 surfrate 10
 rocksmashrate 0
 oldrodrate 25

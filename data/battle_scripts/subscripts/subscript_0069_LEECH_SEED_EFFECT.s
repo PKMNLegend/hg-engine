@@ -4,14 +4,14 @@
 
 _000:
     PlayBattleAnimationOnMons BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_DEFENDER, BATTLE_ANIMATION_DAMAGE_LEECH_SEED
-    Wait 
+    Wait
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_MSG_DEFENDER, BMON_DATA_MAXHP, BSCRIPT_VAR_HP_CALC
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 8
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_MSG_DEFENDER
     Call BATTLE_SUBSCRIPT_UPDATE_HP
-    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE  // Base healing amount
     CheckItemHoldEffect CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, HOLD_EFFECT_LEECH_BOOST, _050
     GetItemEffectParam BATTLER_CATEGORY_MSG_ATTACKER, BSCRIPT_VAR_CALC_TEMP
     UpdateVar OPCODE_ADD, BSCRIPT_VAR_CALC_TEMP, 0x00000064
@@ -22,13 +22,13 @@ _050:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_MSG_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_LIFE_GIVER, _life_giver_boost
-    b _continue
+    b _apply_healing
 
 _life_giver_boost:
-    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, 130
+    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, 130  // 30% boost for Life Giver
     UpdateVar OPCODE_DIV, BSCRIPT_VAR_HP_CALC, 100
 
-_continue:
+_apply_healing:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_DEFENDER, ABILITY_LIQUID_OOZE, _096
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HEAL_BLOCK_TURNS, 0, _083
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
@@ -51,7 +51,7 @@ _083:
 
 _096:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_MAGIC_GUARD, _110
-    Call BATTLE_SUBSCRIPT_UPDATE_HP
+    Call BATTLE_SUBSCRIPT_UPDATE_HP  // Damage from Liquid Ooze (positive HP_CALC)
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE
     Wait
@@ -72,27 +72,28 @@ _110:
     GoTo _check_life_giver_teammate
 
 _check_life_giver_teammate:
+    // Check if it's a double battle
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_DOUBLES, _proceed_to_teammate_heal
+    End
+
+_proceed_to_teammate_heal:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_LIFE_GIVER, _life_giver_teammate_heal
     End
 
 _life_giver_teammate_heal:
-    // Set the teammate as the attacker's partner
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, BSCRIPT_VAR_HIT_DAMAGE  // Store base healing for teammate
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BATTLER_CATEGORY_ATTACKER_PARTNER
-    // Check if teammate's HP is greater than 0 (not fainted)
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_HP, 0, _heal_teammate
     End
 
 _heal_teammate:
-    // Set HP recovery to the damage dealt (hit damage), negated to heal
-    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
-    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
-    // Heal the teammate (BSCRIPT_VAR_MSG_BATTLER_TEMP is already set to the partner)
+    // PlayBattleAnimationOnMons BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_ATTACKER, BATTLE_ANIMATION_DAMAGE_LEECH_SEED // Simply change the targets from foe > user >> user > teammate
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_CALC_TEMP  // Use base amount, not boosted
+    UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1  // Negate for healing
     Call BATTLE_SUBSCRIPT_UPDATE_HP
-    // Play healing animation from teammate to defender
-    PlayBattleAnimationOnMons BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_DEFENDER, BATTLE_ANIMATION_DAMAGE_LEECH_SEED
+    PlayBattleAnimationOnMons BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_DEFENDER, BATTLE_ANIMATION_RESTORE_HP  // Heal animation
     Wait
-    // Optional: Uncomment to add a custom message
+    // Add a custom message like: "{0}’s Life Giver restored HP to {1}!"
     // PrintMessage CUSTOM_MESSAGE_ID, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
-    // Wait
     WaitButtonABTime 30
     End
